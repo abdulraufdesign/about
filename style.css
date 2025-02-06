@@ -1,38 +1,41 @@
 .container {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
   gap: 2rem;
+}
+
+.abt-wrapper{
+  display: grid;
+  gap: 3rem;
 }
 
 .abt-h1{
   color: var(--black);
-  font-size: calc(56px + 2vw);
-  font-weight: 700;
-  line-height: 110%;
+  font-size: calc(28px + 2vw);
+  font-weight: 400;
+  margin-bottom: 1rem;
+  line-height: 1.5;
   letter-spacing: var(--letter-spacing);
   user-select: none;
   position: relative;
 }
-#readmore{
-  padding: 12px 20px;
+
+.abt-sec{
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  width: 100%;
+  text-align: left;
+}
+.abt-sec > .abt-p{
+  padding: 2rem;
   border-radius: 8px;
   background-color: var(--white-08);
 }
-#readmore > summary {
-  cursor: pointer;
-  font-size: 16px;
-  color: var(--black);
-  font-weight: 600;
-}
-#readmore .container {
-  padding: 1rem 1.5ch;
-}
-#readmore .abt-p{
-  width: auto;
-  margin: 0;
-  padding: 0;
-}
+
 
 .skill-h1{
   color: var(--black);
@@ -48,23 +51,22 @@
   font-size: 20px;
   font-weight: 400;
   line-height: 1.5;
-  width: 40ch;
-  padding-bottom: 3rem;
+  padding-bottom: 2rem;
 }
 
 .feature-img{
-  width: 100%;
+  width: 50%;
+  height: 100%;
   object-fit: cover;
-  border-radius: 24px;
-  aspect-ratio: 19/10;
-  margin: 5rem 0;
+  border-radius: 8px;
+  aspect-ratio: 10/16;
 }
 
-.skills-sec .skill-wrapper{
-  display: grid;
+.skills-sec{
+  background-color: var(--white-08);
   grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  padding: 3rem 0;
+  padding: 2rem;
+  border-radius: 8px;
 }
 .skill-sec-1, .skill-sec-2{
   width: 100%;
@@ -88,61 +90,22 @@ h2.skill-name{
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding: 2rem 0;
 }
 .appcontainer{
-  display: none;
-  grid-template-columns: repeat(4, 1fr);
-  align-items: start;
+  display: flex;
   width: 100%;
   gap: 12px;
 }
-.appcontainer.active{
-  display: grid;
-}
+
 .app-name{
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   font-size: 24px;
-  height: 84px;
+  height: 56px;
+  width: 56px;
   border-radius: 8px;
   background-color: var(--white-07);
   color: var(--black);
-}
-
-.stack-bar{
-  position: relative;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  overflow: hidden;
-  border-bottom: 1px solid var(--white-06);
-}
-.stack-bar h2.stack-name{
-  width: 100%;
-  text-align: center;
-  padding: 2rem;
-  cursor: pointer;
-  color: var(--white-04);
-
-}
-
-h2.stack-name:hover{
-  background-color: var(--white-08);
-}
-h2.stack-name.active{
-  color: var(--blue);
-}
-
-.active-tab{
-  position: absolute;
-  width: 50%;
-  height: 3px;
-  background-color: var(--blue);
-  transition: all 0.3s ease;
-  bottom: 0;
-  z-index: 3;
 }
