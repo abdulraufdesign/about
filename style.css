@@ -8,7 +8,8 @@
 }
 
 .abt-wrapper{
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 3rem;
 }
 
@@ -24,10 +25,9 @@
 }
 
 .abt-sec{
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 2rem;
-  width: 100%;
   text-align: left;
 }
 .abt-sec > .abt-p{
@@ -36,16 +36,6 @@
   background-color: var(--white-08);
 }
 
-
-.skill-h1{
-  color: var(--black);
-  font-size: 32px;
-  line-height: 1.2;
-  font-weight: 500;
-  letter-spacing: var(--letter-spacing);
-  user-select: none;
-  padding: 1rem 0;
-}
 .abt-p{
   color: var(--white-05);
   font-size: 20px;
@@ -55,8 +45,8 @@
 }
 
 .feature-img{
-  width: 50%;
   height: 100%;
+  width: 100%;
   object-fit: cover;
   border-radius: 8px;
   aspect-ratio: 10/16;
@@ -64,12 +54,8 @@
 
 .skills-sec{
   background-color: var(--white-08);
-  grid-template-columns: 1fr 1fr;
   padding: 2rem;
   border-radius: 8px;
-}
-.skill-sec-1, .skill-sec-2{
-  width: 100%;
 }
 
 h2.skill-name{
@@ -93,6 +79,7 @@ h2.skill-name{
 }
 .appcontainer{
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
   gap: 12px;
 }
@@ -108,4 +95,8 @@ h2.skill-name{
   border-radius: 8px;
   background-color: var(--white-07);
   color: var(--black);
+}
+
+.quote{
+  padding: 3rem;
 }

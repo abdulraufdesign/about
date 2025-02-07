@@ -20,6 +20,9 @@
     .name{
         font-size: calc(42px + 2vw);
     }
+    .abt-sec{
+        grid-template-columns: 1fr;
+    }
 }
 @media screen and (max-width: 900px) {
     .abtcontainer{
@@ -46,51 +49,39 @@
     .abt-p {
         width: auto;
     }
-    .app-name{
-        font-size: 18px;
-    }
+    
     .app-name img{
         height: 24px;
     }
-    .stack-name{
-        font-size: 20px;
+    .feature-img{
+        aspect-ratio: 16/12;
     }
 }
 @media screen and (max-width: 720px) {
-    h2.app-name{
-        font-size: 16px;
-    }
-    .skills-sec .skill-wrapper{
-        display: flex;
-        flex-direction: column;
-    }
+
     .contact-head p{
         margin-top: 1.5rem;
     }
-    .appcontainer{
-        grid-template-columns: 1fr 1fr 1fr;
+    .quote{
+        padding: 1rem;
     }
 }
 @media screen and (max-width: 530px) {
-    .abt-h1, .name{
+    .abt-h1{
         font-size: 28px;
+    }
+    .name{
+        font-size: 10.4vw;
     }
     .abt-p{
         font-size: 16px;
         padding-bottom: 2rem;
-    }
-    .feature-img{
-        margin: 3rem 0;
-        aspect-ratio: 16/12;
     }
     .container{
         gap: 1.2rem;
     }
     .contact-head strong{
         font-size: 2rem;
-    }
-    .appcontainer{
-        grid-template-columns: 1fr;
     }
     .stack-name{
         font-size: 16px;

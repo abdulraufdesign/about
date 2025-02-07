@@ -57,19 +57,3 @@ function reveal() {
   }
 
 }
-
-let stackTabs = document.querySelectorAll('.stack-name');
-let appcontainers = document.querySelectorAll('.appcontainer');
-
-stackTabs.forEach((tab, i)=> {
-  tab.addEventListener('click', (e)=> {
-    stackTabs.forEach(tab => tab.classList.remove('active'))
-    tab.classList.add('active');
-    var line = document.querySelector('.active-tab');
-    line.style.width = e.target.offsetWidth  + "px";
-    line.style.left = e.target.offsetLeft + "px";
-
-    appcontainers.forEach(app => app.classList.remove('active'))
-    appcontainers[i].classList.add('active');
-  })
-})
