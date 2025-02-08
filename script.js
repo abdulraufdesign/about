@@ -33,9 +33,14 @@ function menuInactive(){
 menuInactive();
 
 window.addEventListener('scroll' , reveal);
+window.addEventListener('scroll' , ()=>{
+  document.body.style.setProperty('--scroll', window.scrollY / (document.body.offsetHeight - window.innerHeight))
+}, false);
+
 
 var connectIcons = document.querySelectorAll('.connect-icon');
 var connectTexts = document.querySelector('.connect-txt');
+
 
 function reveal() {
   
@@ -57,3 +62,4 @@ function reveal() {
   }
 
 }
+

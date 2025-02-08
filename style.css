@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 70vh;
+  height: 65vh;
   gap: 2rem;
 }
 
@@ -49,7 +49,16 @@
   width: 100%;
   object-fit: cover;
   border-radius: 8px;
-  aspect-ratio: 10/16;
+  aspect-ratio: 10/14;
+  animation: move 1s ease infinite;
+  animation-play-state: paused;
+  animation-delay: calc(var(--scroll) * -2s);
+}
+
+@keyframes move {
+  to {
+    object-position: bottom;
+  }
 }
 
 .skills-sec{
