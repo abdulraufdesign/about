@@ -1,72 +1,3 @@
-let themeCta = document.querySelector(".theme-cta");
-
-themeCta.addEventListener("click", () => {
-  document.documentElement.classList.toggle("second");
-  themeCta.classList.toggle("dark");
-});
-
-let menuBtn = document.querySelector('.menu-icon');
-let navList = document.querySelectorAll('.nav__list-item');
-let navContent = document.querySelector('.nav-wrapper');
-let navListItem = document.querySelectorAll('.nav__list-item a');
-
-function menuActive(){
-  menuBtn.addEventListener('click' ,function () {
-    menuBtn.classList.toggle('menu_active');
-    navContent.classList.toggle('menu_active');
-    navList.forEach((navList) => navList.classList.toggle('menu_active'));
-    themeCta.classList.toggle('menu_active');
-  });
-};
-
-menuActive();
-
-function menuInactive(){
-  navListItem.forEach((navListItem) => navListItem.addEventListener('click' , function() {
-    menuBtn.classList.remove('menu_active');
-    navContent.classList.remove('menu_active');
-    navList.forEach((navList) => navList.classList.remove('menu_active'));
-    themeCta.classList.remove('menu_active');
-  }));
-};
-
-menuInactive();
-
-window.addEventListener('scroll' , reveal);
-window.addEventListener('scroll' , ()=>{
-  document.body.style.setProperty('--scroll', window.scrollY / (document.body.offsetHeight - window.innerHeight))
-}, false);
-
-
-var connectIcons = document.querySelectorAll('.connect-icon');
-var connectTexts = document.querySelector('.connect-txt');
-
-
-function reveal() {
-  
-  for (var i = 0; i < connectIcons.length; i++){
-    var windowHeight = window.innerHeight;
-    var revealTop = connectIcons[i].getBoundingClientRect().top;
-    var revealPoint = -50; 
-
-    if(revealTop < windowHeight - revealPoint){
-      connectIcons[i].classList.add('show');
-    } else {
-      connectIcons[i].classList.remove('show');
-    }
-    if(connectIcons[i].classList.contains('show')){
-      connectTexts.classList.add('show');
-    } else {
-      connectTexts.classList.remove('show');
-    }
-  }
-
-}
-
-window.addEventListener('load', () => {
-  document.body.classList.add('page-loaded');
-})
-
 document.addEventListener('DOMContentLoaded', () => {
     // Select the quote container
     const quoteText = document.querySelector('.quote .abt-h1');
@@ -82,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const text = node.textContent.trim();
                 if (text.length > 0) {
                     // Split into words and mark as HIGHLIGHT
-                    const words = text.split(' ');
+                    const words = text.split(/\s+/).filter(Boolean);
                     words.forEach(word => {
                         newHTML += `<span class="word-mask"><span class="word highlight">${word}</span></span> `;
                     });
@@ -93,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const text = node.textContent.trim();
                 if (text.length > 0) {
                     // Split into words and mark as DIM
-                    const words = text.split(' ');
+                    const words = text.split(/\s+/).filter(Boolean);
                     words.forEach(word => {
                         newHTML += `<span class="word-mask"><span class="word dim">${word}</span></span> `;
                     });

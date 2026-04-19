@@ -1,3 +1,33 @@
+.hero {
+  max-width: 1200px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 64px;
+  > div:last-child {
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    >.skills-sec {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 10px;
+  background-color: #2feb84;
+}
+
+/* --- State: In View (Triggered by JS) --- */
+.quote .abt-h1.in-view .word {
+    transform: translateY(0);
+}
 .container {
   display: flex;
   flex-direction: column;
@@ -7,52 +37,50 @@
   gap: 2rem;
 }
 
-.abt-wrapper{
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
+.abt-outside {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 40px 40px 60px;
+
 }
 
 .abt-h1{
   color: var(--black);
-  font-size: calc(28px + 2vw);
-  font-weight: 400;
+  font-size: clamp(24px, 5.5vw, 56px);
+  font-weight: 600;
   margin-bottom: 1rem;
   line-height: 1.5;
-  letter-spacing: var(--letter-spacing);
+  letter-spacing: var(--letter-space);
   user-select: none;
   position: relative;
 }
 
-.abt-sec{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  text-align: left;
+.abt-h3 {
+  font-weight: 600;
+  font-size: clamp(18px, 2vw, 32px);
+  letter-spacing: var(--letter-space);
+  flex: 100px;
+  align-content: flex-end;
 }
-.abt-sec > .abt-p{
-  padding: 2rem;
-  border-radius: 8px;
-  background-color: var(--white-08);
-}
-
 .abt-p{
-  color: var(--white-05);
+  color: var(--color-gray-500);
   font-size: 20px;
   font-weight: 400;
   line-height: 1.5;
-  padding-bottom: 2rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: var(--paragraph-letter-space);
+  max-width: 700px;
 }
 
 .feature-img{
-  height: 100%;
-  width: 100%;
+  height: 300px;
+  width: 300px;
   object-fit: cover;
-  border-radius: 8px;
-  aspect-ratio: 10/14;
+  border-radius: 32px;
   animation: move 1s ease infinite;
   animation-play-state: paused;
   animation-delay: calc(var(--scroll) * -2s);
+  margin-bottom: 1rem;
 }
 
 @keyframes move {
@@ -61,10 +89,33 @@
   }
 }
 
-.skills-sec{
-  background-color: var(--white-08);
-  padding: 2rem;
-  border-radius: 8px;
+.exp-sec{
+  display: flex;
+  gap: 1rem;
+  > div {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    
+    > .exp{
+    font-weight: 400;
+    color: var(--color-gray-500);
+    letter-spacing: var(--paragraph-letter-space);
+    display: flex;
+    flex-direction: column;
+    > strong {
+      font-weight: 600;
+    }
+  }
+}
+}
+
+.vertical-line {
+  width: 1px;
+  height: 84%;
+  background-color: var(--color-gray-200);
+  margin: 0 0.5rem;
+  align-self: center
 }
 
 h2.skill-name{
@@ -72,38 +123,39 @@ h2.skill-name{
   font-size: 2rem;
   font-weight: 500;
 }
-.skillcontainer ul{
-  list-style-type: none;
-  margin: 1rem 0px;
-  color: var(--white-05);
-}
-.skillcontainer ul li{
-  margin-bottom: 8px;
-}
-.apps-wrapper{
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-.appcontainer{
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  gap: 12px;
+.skills-sec ul{
+  list-style-type: disc;
+  list-style-position: inside;
+  color: var(--color-gray-500);
+  margin: 0;
+  padding: 0;
+  font-weight: 500;
+  letter-spacing: var(--paragraph-letter-space);
 }
 
-.app-name{
+.gallery-flex {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  font-size: 24px;
-  height: 56px;
-  width: 56px;
-  border-radius: 8px;
-  background-color: var(--white-07);
-  color: var(--black);
+  gap: 1rem;
+  overflow-x: scroll;
+  >.grid-item {
+    width: 420px;
+    height: 360px;
+    border-radius: 32px;
+    overflow: hidden;
+    transition: all 0.3s var(--smooth-ease);
+    flex-shrink: 0;
+    &:hover {
+      width: 460px;
+    }
+    > video, img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 /* --- Quote Section Styles --- */
@@ -118,6 +170,13 @@ h2.skill-name{
 .quote .abt-h1 {
     max-width: 1200px;
     margin: 0 auto;
+}
+
+.portfolio-link {
+    color: var(--color-gray-500);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s ease;
 }
 
 /* --- The Word Wrapper (Mask) --- */
@@ -140,21 +199,56 @@ h2.skill-name{
                 color 1s ease; /* Smooth color transition for highlight */
 }
 
-/* --- State: In View (Triggered by JS) --- */
-.abt-h1.in-view .word {
-    transform: translateY(0);
-}
+
 
 /* --- The "Dim" Text (Originally inside spans) --- */
 .word.dim {
-    color: var(--white-06); /* Keep your dim color */
+    color: var(--color-gray-500); /* Keep your dim color */
     opacity: 0.6; /* Ensure visual hierarchy */
 }
 
 /* --- The "Highlight" Text (The keywords) --- */
 .word.highlight {
-    color: var(--black); /* Bright white */
+    color: var(--color-black); /* Bright white */
     opacity: 1;
     /* Optional: Add a subtle delay or different timing for emphasis */
     transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); /* Slight bounce */
+}
+
+@media screen and (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    row-gap: 32px;
+    > div:last-child {
+      justify-self: start;
+    }
+  }
+  .abt-p {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+    .quote, .abt-outside {
+        padding: 20px 24px 60px;
+    }
+
+    .feature-img {
+      width: 180px;
+      height: 180px;
+      border-radius: 300px;
+    }
+
+    .gallery-flex {
+      >.grid-item {
+        border-radius: 12px;
+      }
+    }
+}
+
+@media screen and (max-width: 530px) {
+    .abt-p {
+        font-size: 16px;
+        margin-bottom: 1rem;
+    }
 }
