@@ -248,7 +248,7 @@ h2.skill-name{
 }
 
 @media (max-width: 768px) {
-    .quote, .abt-outside {
+    .quote, .outside {
         padding: 20px 24px 60px;
     }
 
