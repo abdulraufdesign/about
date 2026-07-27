@@ -5,6 +5,7 @@
 .hero-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  height: auto;
   column-gap: 64px;
   > div:last-child {
     justify-self: center;
@@ -37,12 +38,27 @@
   gap: 2rem;
 }
 
-.abt-outside {
-  max-width: var(--max-width);
-  margin: 0 auto;
+.outside {
   padding: 40px 40px 60px;
-
+    margin: 0 auto;
+      max-width: var(--max-width);
+      display: flex;
+      
 }
+
+.outside-img { 
+  position: relative;
+  width: 40%;
+  >img {
+    position: absolute;
+    top: 10vh;
+    left: 24vw;
+    height: 360px;
+    aspect-ratio: 3/4;
+    border-radius: 20px;
+  }
+}
+
 
 .abt-h1{
   color: var(--black);
@@ -222,6 +238,9 @@ h2.skill-name{
     > div:last-child {
       justify-self: start;
     }
+  }
+  .outside-img {
+    display: none;
   }
   .abt-p {
     max-width: 100%;
